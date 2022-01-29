@@ -17,5 +17,5 @@ def pump_on(p_pin = 4, delay = 10):
     GPIO.ouput(p_pin, GPIO.HIGH)
     print("stopping pump")
 
-init_output(7)
+init_output(4)
 
