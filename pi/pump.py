@@ -2,8 +2,9 @@
 import RPi.GPIO as GPIO
 import time
 
+GPIO.setmode(GPIO.BOARD)
 soilPin = 11
-GPIO.setmode(GPIO.BCM)
+
 GPIO.setup(soilPin, GPIO.IN)
 
 def pinOn(pin):
@@ -27,4 +28,5 @@ GPIO.add_event_callback(soilPin, callback)
 
 while True:
     print("Still going")
+    #callback(11)
     time.sleep(1)
