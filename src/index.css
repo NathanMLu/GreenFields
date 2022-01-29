@@ -19,4 +19,5 @@ body {
   left: 0;
   display: block;
   background: #f2ffe9;
+  background-image: url(img/flowerPattern.svg);
 }

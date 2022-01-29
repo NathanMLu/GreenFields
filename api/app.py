@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:TAMUHACK@localhost/cloud-plant '
 db = SQLAlchemy(app)
+tempList = []
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,20 +25,43 @@ def index():
         'name': 'This is data from the backend'
     }
 
-@app.route('/event', methods = ['POST'])
-def create_event():
-    description = request.json['description']
-    event = Event(description)
-    db.session.add(event)
-    db.session.commit()
-    return format_event(event)
+temperature = 70
+@app.route('/temp', methods = ['GET', 'Post'])
+def getTemp():
+    if request.method == "GET":
+        return {"temp": "{}f".format(temperature)}
+    else:
+        temperature = int(request.json['temperature'][:-1])
+        print(temperature)
+        return {
+            "success": "temp changed to {}".format(temperature)
+        }
+# temperature = 70
+# @app.route('/temp', methods = ['GET', 'Post'])
+# def getTemp():
+#     if request.method == "GET":
+#         return {"temp": "{}f".format(temperature)}
+#     else:
+#         temperature = int(request.json['temperature'][:-1])
+#         print(temperature)
+#         return {
+#             "success": "temp changed to {}".format(temperature)
+#         }
 
-def format_event(event):
-    return {
-        "description": event.description,
-        "id": event.id,
-        "created_at": event.created_at,
-    }
+@app.route('/water', methods = ['POST'])
+def postWater():
+    water = request.json["water"]
+    print(water)
+    return {"water": water}
+
+@app.route('/light', methods = ['POST'])
+def postLight():
+    light = request.json["lightSet"]
+    print(light)
+    return {"lightSet": light}
+    
+
+
 
 if __name__ == '__main__':
     app.run()
