@@ -6,9 +6,9 @@ GPIO.setup(7,GPIO.OUT)
 from Tkinter import*
 myGui=Tk()
 while True:
-	def onlamp():
+	def onpump():
 		GPIO.output(7,True)
-	def offlamp():
+	def offpump():
 		GPIO.output(7,False)
 	myGui.title("Hello")
 	myGui.geometry("200x350+200+200")

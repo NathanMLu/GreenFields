@@ -25,8 +25,8 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)      
 
 GPIO.setup(7, GPIO.OUT)        
-GPIO.output(7, GPI.LOW)
-GPIO.output(7, GPI.HIGH)  
+GPIO.output(7, GPIO.LOW)
+GPIO.output(7, GPIO.HIGH)  
 print("running indefinitely")
 
 
