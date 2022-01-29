@@ -9,7 +9,7 @@ def init_output(pin):
     GPIO.output(pin, GPIO.HIGH)
     pump_on()
 
-def pump_on(p_pin = 7, delay = 10):
+def pump_on(p_pin = 4, delay = 10):
     init_output(p_pin)
     print("starting pump")
     GPIO.output(p_pin, GPIO.LOW)
