@@ -11,6 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { flower } from "../../img/flowerIcon";
 
 const pages = ["Home", "about"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -33,14 +34,12 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const appBarStyle = {
-    background: "#2E3B55",
-  };
 
   return (
     <AppBar position="static" style={{ background: "#DB6B97" }} margin="normal">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {flower}
           <Typography
             variant="h6"
             noWrap
@@ -109,7 +108,7 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="" />
               </IconButton>
             </Tooltip>
             <Menu
