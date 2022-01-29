@@ -26,4 +26,5 @@ GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
 GPIO.add_event_callback(soilPin, callback)
 
 while True:
+    print("Still going")
     time.sleep(1)
