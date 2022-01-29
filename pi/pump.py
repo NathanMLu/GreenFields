@@ -2,11 +2,9 @@
 import RPi.GPIO as GPIO
 import time
 
-
-def setup():
-    GPIO.setmode(GPIO.BCM)
-    pinOn(11)
-
+soilPin = 11
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(soilPin, GPIO.IN)
 
 def pinOn(pin):
     GPIO.setup(pin, GPIO.OUT)
@@ -18,4 +16,14 @@ def pinOn(pin):
 
     GPIO.cleanup()
 
-setup()
+def callback(soilPin):
+    if GPIO.input(soilPin):
+        print("No water detected")
+    else:
+        print("Water detected")
+
+GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
+GPIO.add_event_callback(soilPin, callback)
+
+while True:
+    time.sleep(1)
