@@ -1,20 +1,23 @@
 import RPi.GPIO as GPIO
 import time
 
+def setup():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(7, GPIO.OUT)
+    startPump()
+
 def startPump():
 
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.output(7,0)
+    time.sleep(3)
     print ("starting pump!")
-
-    GPIO.setup(7, GPIO.OUT)
-
-    GPIO.output(7, GPIO.LOW)
-
-    GPIO.output(7, GPIO.HIGH)
+    GPIO.output(7, 1)
     time.sleep(10)
-    GPIO.output(7, GPIO.LOW)
+    GPIO.output(7, 0)
     print("stopping pump!")
-    GPIO.output(7, GPIO.LOW)
 
 
-startPump()
+
+
+
+setup()
