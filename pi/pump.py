@@ -18,17 +18,15 @@ def startPump():
 
     GPIO.cleanup()
     """
-import RPi.GPIO as GPIO            # import RPi.GPIO module  
+import RPi.GPIO as GPIO     
 from time import sleep
-GPIO.setwarnings(False)             # lets us have a delay  
-GPIO.setmode(GPIO.BOARD)             # choose BCM or BOARD  
-GPIO.setup(7, GPIO.OUT)           # set GPIO24 as an output   
-  
-print("running")
-GPIO.output(7, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
-sleep(10)                 # wait half a second  
-GPIO.output(7, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-print("stopping")
-GPIO.cleanup()  
+
+GPIO.setwarnings(False)            
+GPIO.setmode(GPIO.BOARD)      
+
+GPIO.setup(7, GPIO.OUT)        
+GPIO.output(7, GPI.LOW)
+GPIO.output(7, GPI.HIGH)  
+print("running indefinitely")
 
 
