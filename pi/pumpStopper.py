@@ -5,5 +5,7 @@ PIN = 18
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIN, GPIO.OUT)
-GPIO.output(PIN, 1)
+
+def stop():
+    GPIO.output(PIN, 1)
 
