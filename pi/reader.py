@@ -2,12 +2,10 @@ import requests
 import RPi.GPIO as GPIO
 import threading
 import json
-
-from calculate import *
         
 temp = 67
-damp = hasWater()
-score = getScore()
+damp = 5
+score = 10
 
 def set_default(obj):
     if isinstance(obj, set):
