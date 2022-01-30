@@ -20,11 +20,11 @@ def callback(soilPin):
         print("Water detected")
 
 def hasWater():
+    callback()
     return water
 
 GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
 GPIO.add_event_callback(soilPin, callback)
-
 
 def sensorLoop():
     while True:
@@ -33,5 +33,3 @@ def sensorLoop():
 t1 = threading.Thread(target = sensorLoop)
 t1.start()
 t1.join()
-
-print("Shouldn't reach here :(")

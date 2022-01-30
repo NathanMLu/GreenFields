@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import threading
 
 PIN = 18
 
@@ -19,12 +20,15 @@ def stopPumping():
     GPIO.output(PIN, 1)
     time.sleep(5)
 
-while True:
-    print("Starting pump")
-    startPumping()
-    time.sleep(5)
-    print("Stopping pump")
-    stopPumping
-    time.sleep(5)
-
-
+def pumpLoop():
+    while True:
+        print("Starting pump")
+        startPumping()
+        time.sleep(5)
+        print("Stopping pump")
+        stopPumping
+        time.sleep(5)
+        
+t1 = threading.Thread(target = pumpLoop)
+t1.start()
+t1.join()

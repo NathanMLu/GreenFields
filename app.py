@@ -39,8 +39,12 @@ def getData():
             else:
                 temperature = int(temp)
             print(temperature) 
+            
         if (request.json['dampness']):
             dampness =  bool(request.json['dampness'])
+
+        if (request.json['score']):
+            dampness =  bool(request.json['score'])
 
 
 water = False
