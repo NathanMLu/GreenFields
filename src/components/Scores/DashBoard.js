@@ -4,6 +4,7 @@ import ProgressBar from "./ProgressBar";
 import BloodtypeOutlinedIcon from "@mui/icons-material/BloodtypeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import useHttp from "../hooks/use-HTTP";
+import DataDisplay from "./DataDisplay";
 const DashBoard = (props) => {
   const [light, setLight] = useState(false);
   const [water, setWater] = useState(false);
@@ -82,10 +83,10 @@ const DashBoard = (props) => {
             </Box>
           </Paper>
         </Grid>
-        <Grid item item xs={12} md={6} xl={4} textAlign="center" margin={0}>
+        <Grid item xs={12} md={6} xl={4} textAlign="center" margin={0}>
           <Paper>
             <Box padding={4}>
-              <p>Item 2</p>
+              <DataDisplay />
             </Box>
           </Paper>
         </Grid>
