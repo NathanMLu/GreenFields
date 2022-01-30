@@ -1,12 +1,13 @@
 #PIN 11
 import RPi.GPIO as GPIO
-import asyncio
+import threading
 import time
 
 soilPin = 11
 water = False
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(soilPin, GPIO.IN)
+
 
 
 
@@ -23,7 +24,15 @@ def callback(soilPin):
 def hasWater():
     return water
 
-while True:
-    GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
-    GPIO.add_event_callback(soilPin, callback)
+GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
+GPIO.add_event_callback(soilPin, callback)
+"""
 
+def sensorLoop():
+    while True:
+        time.sleep(1)
+        
+t1 = threading.Thread(target = sensorLoop)
+"""
+
+time.sleep(10)
