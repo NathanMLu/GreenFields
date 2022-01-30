@@ -34,5 +34,5 @@ def sensorLoop():
         
 t1 = threading.Thread(target = sensorLoop)
 """
-
-time.sleep(10)
+while True:
+    time.sleep(1)
