@@ -23,8 +23,7 @@ res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
 def search():
     while True:
         res = requests.get('https://aqueous-tor-90407.herokuapp.com/water')
-        if (res):
-            startPumping()
+        print(res)
         time.sleep(2)
 
 t1 = threading.Thread(target = search)
