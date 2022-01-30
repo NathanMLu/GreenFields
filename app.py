@@ -52,7 +52,7 @@ water = False
 @app.route('/water', methods = ['POST', 'GET'])
 def postWater():
     global water
-    if request.methods == 'POST':
+    if request.method == 'POST':
         water = request.json["water"]
         print(water)
         return {"water": water}

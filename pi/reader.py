@@ -14,4 +14,5 @@ score = getScore()
 result = {"dampness": damp, "score": score, "temp": temp}
 print(result)
 
+
 res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
