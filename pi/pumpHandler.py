@@ -2,9 +2,9 @@ import RPi.GPIO as GPIO
 import time
 import threading
 
-PIN = 18
+PIN = 12
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(PIN, GPIO.OUT)
 
 def startPumping():
