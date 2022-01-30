@@ -32,8 +32,6 @@ def sensorLoop():
     while True:
         time.sleep(1)
         
-
-
 temp = 67
 damp = hasWater()
 score = getScore()
@@ -44,8 +42,8 @@ def set_default(obj):
     raise TypeError
 
 result = json.dumps({temp, damp, score}, default=set_default)
-
-print("temp ", temp, " damp ", damp, " score ", score)
+print(result)
+#print("temp ", temp, " damp ", damp, " score ", score)
 
 res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
 
