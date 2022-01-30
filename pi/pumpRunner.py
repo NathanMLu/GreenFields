@@ -9,9 +9,9 @@ GPIO.setup(pin, GPIO.OUT)
 
 while (True):
     GPIO.output(pin, 1)
-    time.sleep(1)
+    time.sleep(5)
     GPIO.output(pin, 0)
-    time.sleep(1)
+    time.sleep(5)
 
 
 	
