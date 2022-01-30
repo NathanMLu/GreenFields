@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Paper, Grid, Box, Button } from "@mui/material";
 import ProgressBar from "./ProgressBar";
 import BloodtypeOutlinedIcon from "@mui/icons-material/BloodtypeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import useHttp from "../hooks/use-HTTP";
 import DataDisplay from "./DataDisplay";
+import { useCounter } from "./CountDown";
+
 const DashBoard = (props) => {
+  // console.log("Seconds from dash" + seconds);
+  const [seconds, setSeconds] = useState();
   const [light, setLight] = useState(false);
   const [water, setWater] = useState(false);
   const { waterLoading, waterError, sendRequest: sendWater } = useHttp();
@@ -22,8 +26,10 @@ const DashBoard = (props) => {
     });
     setLight(!light);
   };
+
   const waterHandler = (event) => {
-    setWater(!water);
+    setWater(true);
+
     console.log("water button clicked ");
     sendWater({
       url: "/water",
@@ -68,6 +74,7 @@ const DashBoard = (props) => {
                   >
                     Water
                   </Button>
+                  {seconds}
                 </Grid>
                 <Grid item xs={12} md={6} xl={4}>
                   <Button
