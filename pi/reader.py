@@ -2,6 +2,7 @@ import requests
 import RPi.GPIO as GPIO
 import time
 import threading
+import json
 
 from calculate import *
 
@@ -37,8 +38,16 @@ temp = 67
 damp = hasWater()
 score = getScore()
 
+def set_default(obj):
+    if isinstance(obj, set):
+        return list(obj)
+    raise TypeError
+
+result = json.dumps({temp, damp, score}, default=set_default)
+
 print("temp ", temp, " damp ", damp, " score ", score)
-res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json={temp, damp, score})
+
+res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
 
 t1 = threading.Thread(target = sensorLoop)
 t1.start()
