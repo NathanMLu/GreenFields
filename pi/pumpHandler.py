@@ -14,9 +14,11 @@ def pump():
 
     if not PUMPING:
         GPIO.output(PIN, 0)
+        """
         time.sleep(10)
         GPIO.output(PIN, 1)
         time.sleep(10)
+        """
         
         
 
