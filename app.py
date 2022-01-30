@@ -29,10 +29,11 @@ score = 80
 def getData():
     global temperature
     global dampness
+    global score
     if request.method == "GET":
         return {"temp" : "{}".format(temperature), "dampness": dampness, 'score': score}
     else:
-        if (request.json['temp']):
+        if ('temp' in request.json):
             temp = request.json['temp']
             if temp[-1]=='f' or temp[-1]=='c':
                 temperature = int(temp[:-1])
@@ -40,11 +41,11 @@ def getData():
                 temperature = int(temp)
             print(temperature) 
             
-        if (request.json['dampness']):
+        if ('dampness' in request.json):
             dampness =  bool(request.json['dampness'])
-
-        if (request.json['score']):
-            dampness =  bool(request.json['score'])
+        if ('score' in request.json):
+            score =  int(request.json['score'])
+        return {"temp" : "{}".format(temperature), "dampness": dampness, 'score': score}
 
 
 water = False
