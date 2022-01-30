@@ -7,7 +7,7 @@ from sensorHandler import hasWater
 from calculate import getScore
         
 temp = str(67)
-damp = hasWater()
+damp = int(hasWater())
 score = getScore()
 
 
