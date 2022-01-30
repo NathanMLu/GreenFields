@@ -34,7 +34,6 @@ def sensorLoop():
         time.sleep(1)
 
 
-
 """ PUMP """
 
 PIN = 12
