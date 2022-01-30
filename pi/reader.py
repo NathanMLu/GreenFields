@@ -24,11 +24,16 @@ def search():
     print("Started search")
     while True:
         res = requests.get('https://aqueous-tor-90407.herokuapp.com/water')
-        print(res.json())
-        time.sleep(2)
-        startPumping()
-        time.sleep(2)
-        stopPumping()
+        res_json = res.json()
+
+        if (res_json["water"] == 1):
+            startPumping()
+            time.sleep(10)
+            stopPumping()
+        else:
+            print("wrong json")
+        
+        time.sleep(5)
 
 t1 = threading.Thread(target = search)
 t1.start()
