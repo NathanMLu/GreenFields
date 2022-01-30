@@ -21,6 +21,7 @@ print(result)
 res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
 
 def search():
+    print("Started search")
     while True:
         res = requests.get('https://aqueous-tor-90407.herokuapp.com/water')
         print(res)

@@ -26,7 +26,7 @@ def pumpLoop():
         startPumping()
         time.sleep(5)
         print("Stopping pump")
-        stopPumping
+        stopPumping()
         time.sleep(5)
         
 t1 = threading.Thread(target = pumpLoop)
