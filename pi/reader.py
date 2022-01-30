@@ -29,3 +29,5 @@ def search():
 t1 = threading.Thread(target = search)
 t1.start()
 t1.join()
+
+GPIO.cleanup() 

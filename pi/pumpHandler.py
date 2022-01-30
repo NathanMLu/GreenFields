@@ -34,3 +34,4 @@ t1 = threading.Thread(target = pumpLoop)
 t1.start()
 t1.join()
 """
+GPIO.cleanup() 
