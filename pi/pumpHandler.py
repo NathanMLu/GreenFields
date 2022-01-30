@@ -19,5 +19,8 @@ def pump():
     PUMPING = False
 
 while True:
-    pump()
+    GPIO.output(PIN, 1)
+    time.sleep(10)
+    GPIO.output(PIN, 0)
+    print("pumping :))))")
 
