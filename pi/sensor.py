@@ -5,9 +5,9 @@ channel = 17
 
 def callback(channel):  
 	if GPIO.input(channel):
-		print "Sensor off"
+		print ("Sensor off")
 	else:
-		print "Sensor on"
+		print ("Sensor on")
 
 
 GPIO.setmode(GPIO.BCM)
