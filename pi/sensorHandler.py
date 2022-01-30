@@ -5,7 +5,7 @@ import time
 
 soilPin = 11
 water = False
-GPIO.setmode(GPIO.BOARD)
+#GPIO.setmode(GPIO.BOARD)
 GPIO.setup(soilPin, GPIO.IN)
 
 
