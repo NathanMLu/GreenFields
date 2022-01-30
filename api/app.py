@@ -3,6 +3,7 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 import gevent
 from flask import copy_current_request_context
+import json
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:TAMUHACK@localhost/cloud-plant '
@@ -47,6 +48,9 @@ def getData():
 #             "success": "temp changed to {}".format(temperature)
 #         }
 
+tempList={54:"234", 65:[657,23,65], "stuff":"lol"}
+
+
 @app.route('/water', methods = ['POST'])
 def postWater():
     water = request.json["water"]
@@ -59,11 +63,12 @@ def postLight():
     print(light)
     return {"lightSet": light}
 
-@app.route('/jsonexample', methods = ['POST'])
-def jsonexample():
-    data = request.get_json()
-    temperature = data['temperature']
-    moisture = data['moisture']
+
+@app.route('/jsonexample', methods=['GET'])
+def index():
+    return Flask.render_template('index.html')
+
+
 
 
     
