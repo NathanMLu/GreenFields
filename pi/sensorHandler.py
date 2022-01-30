@@ -28,7 +28,7 @@ def hasWater():
 GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
 GPIO.add_event_callback(soilPin, callback)
 
-"""
+
 def sensorLoop():
     while True:
         time.sleep(1)
@@ -36,6 +36,6 @@ def sensorLoop():
 t1 = threading.Thread(target = sensorLoop)
 t1.start()
 t1.join()
-"""
+
 
 GPIO.cleanup() 
