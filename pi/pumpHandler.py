@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 PIN = 18
-PUMPING = True
+PUMPING = False
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIN, GPIO.OUT)
