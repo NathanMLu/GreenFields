@@ -2,6 +2,7 @@ from sensorHandler import *
 from pumpHandler import *
 from pumpStopper import *
 
+print("starting program")
 
 while True:
     print("Starting pump")
