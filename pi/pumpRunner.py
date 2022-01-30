@@ -9,9 +9,8 @@ GPIO.setup(pin, GPIO.OUT)
 
 
 while (True):
-    if keyboard.is_pressed("space"):
-        GPIO.output(pin, 0)
-    else:
-        GPIO.output(pin, 1)
+    GPIO.output(pin, 1)
+    time.sleep(25)
+    GPIO.output(pin, 0)
 
 	
