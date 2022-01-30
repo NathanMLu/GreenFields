@@ -1,5 +1,6 @@
 #PIN 11
 import RPi.GPIO as GPIO
+import asyncio
 import time
 
 soilPin = 11
@@ -22,8 +23,7 @@ def callback(soilPin):
 def hasWater():
     return water
 
-GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
-GPIO.add_event_callback(soilPin, callback)
-
 while True:
-    time.sleep(1)
+    GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
+    GPIO.add_event_callback(soilPin, callback)
+
