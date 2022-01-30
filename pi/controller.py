@@ -37,7 +37,7 @@ def sensorLoop():
 
 """ PUMP """
 
-PIN = 18
+PIN = 12
 GPIO.setup(PIN, GPIO.OUT)
 
 def startPumping():
