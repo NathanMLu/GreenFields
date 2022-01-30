@@ -24,6 +24,7 @@ temperature = 70
 dampness = True
 photoresister = False
 score = 80
+
 @app.route('/data', methods = ['GET', 'POST'])
 def getData():
     global temperature
