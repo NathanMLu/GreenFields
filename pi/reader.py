@@ -3,8 +3,8 @@ import RPi.GPIO as GPIO
 import threading
 import json
 
-from pi.sensorHandler import hasWater
-from pi.calculate import getScore
+from sensorHandler import hasWater
+from calculate import getScore
         
 temp = str(67)
 damp = hasWater()
