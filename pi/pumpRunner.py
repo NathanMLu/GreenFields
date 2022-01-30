@@ -8,9 +8,12 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pin, GPIO.OUT)
 
 
-while (True):
-    GPIO.output(pin, 1)
-    time.sleep(25)
-    GPIO.output(pin, 0)
+print("Turning pin on")    
+GPIO.output(pin, 1)
+time.sleep(25)
+GPIO.output(pin, 0)
+print("Turning pin off")
+
+GPIO.cleanup()  
 
 	
