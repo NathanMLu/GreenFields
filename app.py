@@ -21,14 +21,15 @@ def index():
 
 
 temperature = 70
-dampness = .5
+dampness = True
 photoresister = False
+score = 80
 @app.route('/data', methods = ['GET', 'POST'])
 def getData():
     global temperature
     global dampness
     if request.method == "GET":
-        return {"temp" : "{}".format(temperature), "dampness": dampness}
+        return {"temp" : "{}".format(temperature), "dampness": dampness, 'score': score}
     else:
         if (request.json['temp']):
             temp = request.json['temp']
@@ -38,34 +39,30 @@ def getData():
                 temperature = int(temp)
             print(temperature) 
         if (request.json['dampness']):
-            dampness =  request.json['dampness']
-
-# temperature = 70
-# @app.route('/temp', methods = ['GET', 'Post'])
-# def getTemp():
-#     if request.method == "GET":
-#         return {"temp": "{}f".format(temperature)}
-#     else:
-#         temperature = int(request.json['temperature'][:-1])
-#         print(temperature)
-#         return {
-#             "success": "temp changed to {}".format(temperature)
-#         }
-
-tempList={54:"234", 65:[657,23,65], "stuff":"lol"}
+            dampness =  bool(request.json['dampness'])
 
 
-@app.route('/water', methods = ['POST'])
+water = False
+@app.route('/water', methods = ['POST', 'GET'])
 def postWater():
-    water = request.json["water"]
-    print(water)
-    return {"water": water}
+    global water
+    if request.methods == 'POST':
+        water = request.json["water"]
+        print(water)
+        return {"water": water}
+    else:
+        return  {"water": int(water)}
 
-@app.route('/light', methods = ['POST'])
+light = False
+@app.route('/light', methods = ['POST', 'GET'])
 def postLight():
-    light = request.json["lightSet"]
-    print(light)
-    return {"lightSet": light}
+    global light
+    if request.methods == 'POST':
+        light = request.json["lightSet"]
+        print(light)
+        return {"lightSet": light}
+    else:
+        return {"lightSet": light}
 
 
 @app.route('/')

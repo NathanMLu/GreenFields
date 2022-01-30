@@ -12,8 +12,16 @@ const DashBoard = (props) => {
   const [seconds, setSeconds] = useState();
   const [light, setLight] = useState(false);
   const [water, setWater] = useState(false);
+  const [score, setScore] = useState(0);
   const { waterLoading, waterError, sendRequest: sendWater } = useHttp();
   const { lightLoading, lightError, sendRequest: sendLight } = useHttp();
+  const { scoreLoading, scoreError, sendRequest: getScore } = useHttp();
+  useEffect(() => {
+    const transformData = (data) => {
+      setScore(data["score"]);
+    };
+    getScore({ url: "/data" }, transformData);
+  }, [getScore]);
   const lightHandler = async (event) => {
     console.log("light button clicked ");
     sendLight({
@@ -53,7 +61,7 @@ const DashBoard = (props) => {
                   <h1>Score: </h1>
                 </Grid>
                 <Grid item>
-                  <ProgressBar strokeWidth={10} percentage={70} />
+                  <ProgressBar strokeWidth={10} percentage={score} />
                 </Grid>
               </Grid>
             </Box>
@@ -63,10 +71,10 @@ const DashBoard = (props) => {
       <Grid container spacing={1} justifyContent="center">
         <Grid item xs={12} md={6} xl={4} textAlign="center" margin={0}>
           <Paper>
-            <Box padding={4}>
+            <Box padding={2}>
               <h1>Interact</h1>
-              <Grid container spacing={2}>
-                <Grid item xs={12} md={6} xl={4}>
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item xs={4} md={5} xl={4}>
                   <Button
                     variant="contained"
                     startIcon={<BloodtypeOutlinedIcon />}
@@ -74,9 +82,8 @@ const DashBoard = (props) => {
                   >
                     Water
                   </Button>
-                  {seconds}
                 </Grid>
-                <Grid item xs={12} md={6} xl={4}>
+                <Grid item xs={4} md={4} xl={4}>
                   <Button
                     variant={lightButtonVariant}
                     startIcon={<LightModeOutlinedIcon />}
