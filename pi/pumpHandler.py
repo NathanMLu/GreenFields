@@ -8,6 +8,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIN, GPIO.OUT)
 
 def pump():
+    
+    print("pumping")
     global PUMPING, PIN
 
     if not PUMPING:
@@ -16,7 +18,7 @@ def pump():
         GPIO.output(PIN, 1)
         time.sleep(10)
         
-        print("pumping :))))")
+        
 
     PUMPING = False
   
