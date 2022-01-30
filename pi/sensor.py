@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 soilPin = 11
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(soilPin, GPIO.IN)
 
 def callback(soilPin):
@@ -17,4 +17,5 @@ GPIO.add_event_callback(soilPin, callback)
 
 while True:
     time.sleep(1)
+    callback(11)
     print("looking for input")
