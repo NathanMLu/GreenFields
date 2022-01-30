@@ -1,0 +1,35 @@
+#wrapper {
+  position: relative;
+  margin: auto;
+  max-height: 200px;
+  overflow: hidden;
+}
+#percentage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 30px;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+#meter {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 300px;
+  transform: rotateX(180deg) translateY(-0%);
+}
+.circle {
+  fill: none;
+}
+.outline,
+#mask {
+  stroke: #f1f1f1;
+  stroke-width: 41;
+}
+.range {
+  stroke-width: 40;
+}
+#high {
+  z-index: 1000000;
+}
