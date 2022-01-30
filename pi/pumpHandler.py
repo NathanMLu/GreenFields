@@ -21,9 +21,6 @@ def stopPumping():
     GPIO.output(PIN, 1)
     time.sleep(5)
 
-
-startPumping
-"""
 def pumpLoop():
     while True:
         print("Starting pump")
@@ -36,5 +33,5 @@ def pumpLoop():
 t1 = threading.Thread(target = pumpLoop)
 t1.start()
 t1.join()
-"""
+
 GPIO.cleanup() 
