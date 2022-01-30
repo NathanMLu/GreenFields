@@ -7,8 +7,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(soilPin, GPIO.IN)
 
 def callback(soilPin):
-    print(GPIO.input(soilPin))
-    if GPIO.input(soilPin):
+    if not GPIO.input(soilPin):
         print("No water detected")
     else:
         print("Water detected")
@@ -18,5 +17,3 @@ GPIO.add_event_callback(soilPin, callback)
 
 while True:
     time.sleep(1)
-    callback(11)
-    print("looking for input")
