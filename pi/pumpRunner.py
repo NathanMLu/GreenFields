@@ -2,9 +2,9 @@ import time
 import keyboard
 import RPi.GPIO as GPIO
 
-pin = 3
+pin = 2
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
 
 
