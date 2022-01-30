@@ -5,7 +5,7 @@ PIN = 18
 PUMPING = True
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(pin, GPIO.OUT)
+GPIO.setup(PIN, GPIO.OUT)
 
 def pump():
     global PUMPING, PIN
