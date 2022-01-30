@@ -32,15 +32,18 @@ def getData():
     if request.method == "GET":
         return {"temp" : "{}".format(temperature), "dampness": dampness, 'score': score}
     else:
-        if (request.json['temp']):
+        if ('temp' in request.json):
             temp = request.json['temp']
             if temp[-1]=='f' or temp[-1]=='c':
                 temperature = int(temp[:-1])
             else:
                 temperature = int(temp)
             print(temperature) 
-        if (request.json['dampness']):
+        if ('dampness' in request.json):
             dampness =  bool(request.json['dampness'])
+        if ('score' in request.json):
+            dampness =  bool(request.json['dampness'])
+        return {"temp" : "{}".format(temperature), "dampness": dampness, 'score': score}
 
 
 water = False
