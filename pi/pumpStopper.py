@@ -9,3 +9,5 @@ GPIO.setup(PIN, GPIO.OUT)
 def stop():
     GPIO.output(PIN, 1)
 
+stop()
+
