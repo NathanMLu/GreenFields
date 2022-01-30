@@ -28,5 +28,5 @@ GPIO.add_event_callback(soilPin, callback)
 
 while True:
     print("Still going")
-    #callback(11)
+    callback(11)
     time.sleep(1)
