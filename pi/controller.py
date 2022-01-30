@@ -71,6 +71,8 @@ t2 = threading.Thread(target = pumpLoop)
 t2.start()
 #t1.join()
 t2.join()
+
+GPIO.cleanup() 
         
 
 

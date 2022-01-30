@@ -37,3 +37,5 @@ t1 = threading.Thread(target = sensorLoop)
 t1.start()
 t1.join()
 """
+
+GPIO.cleanup() 
