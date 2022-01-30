@@ -37,7 +37,7 @@ def search():
 
         res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
         
-        time.sleep(5)
+        time.sleep(10)
 
 t1 = threading.Thread(target = search)
 t1.start()
