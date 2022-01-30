@@ -20,7 +20,9 @@ def callback(soilPin):
         print("Water detected")
 
 def hasWater():
-    callback()
+    global soilPin
+
+    callback(soilPin)
     return water
 
 GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
