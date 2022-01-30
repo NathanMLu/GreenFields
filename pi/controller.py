@@ -63,11 +63,11 @@ def pumpLoop():
 
 # Threading  
 
-t1 = threading.Thread(target = sensorLoop)
+#t1 = threading.Thread(target = sensorLoop)
 t2 = threading.Thread(target = pumpLoop)
-t1.start()
+#t1.start()
 t2.start()
-t1.join()
+#t1.join()
 t2.join()
         
 
