@@ -6,6 +6,7 @@ PIN = 12
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(PIN, GPIO.OUT)
+GPIO.output(PIN, 0)
 
 def startPumping():
     print("pumping")
