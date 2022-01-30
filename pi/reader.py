@@ -24,7 +24,7 @@ def search():
     print("Started search")
     while True:
         res = requests.get('https://aqueous-tor-90407.herokuapp.com/water')
-        print(res)
+        print(res.json())
         time.sleep(2)
         startPumping()
         time.sleep(2)
