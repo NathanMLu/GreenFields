@@ -1,13 +1,14 @@
-#PIN 11
+import requests
 import RPi.GPIO as GPIO
-import threading
 import time
+import threading
+
+from calculate import *
 
 soilPin = 11
 water = False
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(soilPin, GPIO.IN)
-
 
 def callback(soilPin):
     global water
@@ -30,8 +31,16 @@ def sensorLoop():
     while True:
         time.sleep(1)
         
+
+
+temp = 67
+damp = hasWater()
+score = getScore()
+
+print("temp ", temp, " damp ", damp, " score ", score)
+res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json={temp, damp, score})
+
 t1 = threading.Thread(target = sensorLoop)
 t1.start()
 t1.join()
 
-print("Shouldn't reach here :(")
