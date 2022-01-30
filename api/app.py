@@ -1,15 +1,18 @@
+from audioop import cross
 from datetime import datetime
+from types import coroutine
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
-import gevent
-from flask import copy_current_request_context
-import json
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:TAMUHACK@localhost/cloud-plant '
-db = SQLAlchemy(app)
+
+from flask import copy_current_request_context
+from flask_cors import CORS, cross_origin   
+
+app = Flask(__name__, static_folder='../build', static_url_path='')
+
+CORS(app)
 
 @app.route('/api', methods={'GET'})
+@cross_origin()
 def index():
     return {
         'name': 'This is data from the backend'
@@ -64,15 +67,10 @@ def postLight():
     return {"lightSet": light}
 
 
-@app.route('/jsonexample', methods=['GET'])
-def index():
-    return Flask.render_template('index.html')
-
-
-
-
-    
-
+@app.route('/')
+@cross_origin()
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 if __name__ == '__main__':
