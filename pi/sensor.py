@@ -7,6 +7,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(soilPin, GPIO.IN)
 
 def callback(soilPin):
+    print(GPIO.input(soilPin))
     if GPIO.input(soilPin):
         print("No water detected")
     else:
