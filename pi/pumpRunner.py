@@ -2,11 +2,10 @@ import time
 import keyboard
 import RPi.GPIO as GPIO
 
-pin = 2
+pin = 40
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pin, GPIO.OUT)
-
 
 print("Turning pin on")    
 GPIO.output(pin, 1)
