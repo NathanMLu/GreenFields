@@ -3,7 +3,6 @@ import RPi.GPIO as GPIO
 import time
 
 from sensorHandler import *
-from sensorHandler import *
 from pumpHandler import *
 from pumpStopper import *
 

@@ -6,7 +6,7 @@ import time
 import json
 
 from pumpHandler import *
-from sensorHandler import hasWater
+from sensorHandler import *
 from calculate import getScore
         
 temp = str(67)
