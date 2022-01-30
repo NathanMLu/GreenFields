@@ -8,7 +8,6 @@ GPIO.setup(pin, GPIO.OUT)
 
 
 while (True):
- 
     GPIO.output(pin, 1)
     time.sleep(1)
     GPIO.output(pin, 0)

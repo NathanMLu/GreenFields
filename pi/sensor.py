@@ -1,8 +1,16 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
 channel = 17
+
+def callback(channel):  
+	if GPIO.input(channel):
+		print "Sensor off"
+	else:
+		print "Sensor on"
+
+
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
 GPIO.add_event_detect(channel, GPIO.BOTH)
 ouncetime =300

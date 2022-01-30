@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BOARD)
-soilPin = 11
+soilPin = 17
 
 GPIO.setup(soilPin, GPIO.IN)
 
@@ -28,5 +28,5 @@ GPIO.add_event_callback(soilPin, callback)
 
 while True:
     print("Still going")
-    callback(11)
+    callback(soilPin)
     time.sleep(1)
