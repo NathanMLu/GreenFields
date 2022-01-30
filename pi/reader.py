@@ -26,6 +26,9 @@ def search():
         res = requests.get('https://aqueous-tor-90407.herokuapp.com/water')
         print(res)
         time.sleep(2)
+        startPumping()
+        time.sleep(2)
+        stopPumping()
 
 t1 = threading.Thread(target = search)
 t1.start()
