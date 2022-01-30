@@ -20,9 +20,7 @@ print(result)
 
 res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
 
-result = {"water": 0}
-print(result)
-res = requests.post('https://aqueous-tor-90407.herokuapp.com/water', json=result)
+
 
 def search():
     print("Started search")
@@ -34,6 +32,9 @@ def search():
             startPumping()
             time.sleep(10)
             stopPumping()
+
+            result = {"water": 0}
+            res = requests.post('https://aqueous-tor-90407.herokuapp.com/water', json=result)
         else:
             stopPumping()
             print("wrong json")
