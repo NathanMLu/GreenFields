@@ -32,6 +32,8 @@ def sensorLoop():
     while True:
         time.sleep(1)
         
-#t1 = threading.Thread(target = sensorLoop)
+t1 = threading.Thread(target = sensorLoop)
+t1.start()
+t1.join()
 
-sensorLoop()
+print("Shouldn't reach here :(")
