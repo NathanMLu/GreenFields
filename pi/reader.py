@@ -8,19 +8,6 @@ import json
 from pumpHandler import *
 from sensorHandler import *
 from calculate import getScore
-        
-temp = str(67)
-damp = int(hasWater())
-score = getScore()
-
-
-result = {"dampness": damp, "score": score, "temp": temp}
-print(result)
-
-
-res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
-
-
 
 def search():
     print("Started search")
@@ -38,6 +25,17 @@ def search():
         else:
             stopPumping()
             print("wrong json")
+
+
+        temp = str(67)
+        damp = int(hasWater())
+        score = getScore()
+
+
+        result = {"dampness": damp, "score": score, "temp": temp}
+        print(result)
+
+        res = requests.post('https://aqueous-tor-90407.herokuapp.com/data', json=result)
         
         time.sleep(5)
 
