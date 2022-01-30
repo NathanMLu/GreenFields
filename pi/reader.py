@@ -8,7 +8,7 @@ from calculate import getScore
         
 temp = str(67)
 damp = hasWater()
-score = str(getScore)
+score = getScore()
 
 def set_default(obj):
     if isinstance(obj, set):
