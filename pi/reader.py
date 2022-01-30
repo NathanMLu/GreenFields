@@ -41,7 +41,7 @@ def set_default(obj):
         return list(obj)
     raise TypeError
 
-result = json.dumps({"dampness": damp, "score": score, "temp": score}, default=set_default)
+result = json.dumps({"dampness": damp, "score": score, "temp": temp}, default=set_default)
 print(result)
 #print("temp ", temp, " damp ", damp, " score ", score)
 
