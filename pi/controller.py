@@ -7,6 +7,3 @@ while True:
     if hasWater:
         print("pumping")
         pump()
-    else:
-        print("stopping")
-        stop()
