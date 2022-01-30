@@ -26,8 +26,10 @@ def callback(soilPin):
         water = True
         print("Water detected")
 
+"""
 GPIO.add_event_detect(soilPin, GPIO.BOTH, bouncetime=300)
 GPIO.add_event_callback(soilPin, callback)
+"""
 
 def sensorLoop():
     while True:
