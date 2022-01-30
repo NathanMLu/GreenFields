@@ -3,4 +3,8 @@ from pumpHandler import *
 from pumpStopper import *
 
 
-pump()
+while True:
+    startPumping()
+    time.sleep(5)
+    stopPumping
+    time.sleep(5)

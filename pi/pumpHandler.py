@@ -2,30 +2,20 @@ import RPi.GPIO as GPIO
 import time
 
 PIN = 18
-PUMPING = False
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIN, GPIO.OUT)
 
-def pump():
-    
+def startPumping():
     print("pumping")
-    global PUMPING, PIN
+    global PIN
+    GPIO.output(PIN, 0)
 
-    if not PUMPING:
-        GPIO.output(PIN, 0)
-        """
-        time.sleep(10)
-        GPIO.output(PIN, 1)
-        time.sleep(10)
-        """
-        
-        
 
-    PUMPING = False
+def stopPumping():
+    print("stopping")
+    global PIN
+    GPIO.output(PIN, 1)
   
-
-while True:
-    pump()
 
 
